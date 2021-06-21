@@ -8,9 +8,16 @@ const Stack = createStackNavigator();
 
 export default function LoggedOutNav(){
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="Welcome" component={Welcome} />
-            <Stack.Screen name="CreateAccount" component={CreateAccount} />
+        <Stack.Navigator initialRouteName="Welcome" headerMod="float" screenOptions={{  //options 전역변수 같은 느낌..
+            headerBackTitleVisible: false, // 뒤로가기에 이름 붙이는 거 
+            headerShown: true, // 헤더가 보이는 지 안 보이는 지
+            headerTintColor: "black", // 헤더 화살표 색상
+        }}>
+            <Stack.Screen name="Welcome" options={{
+                title: "instagram",
+            }}
+            component={Welcome} />
+            <Stack.Screen name="CreateAccount" options={{headerShown: false}} component={CreateAccount} />
             <Stack.Screen name="LogIn" component={LogIn} />
         </Stack.Navigator>
     )
