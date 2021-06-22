@@ -2,10 +2,11 @@ import AppLoading from "expo-app-loading";
 import React, {useState} from 'react';
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
-import { StyleSheet, Text, View } from 'react-native';
+import { Appearance, StyleSheet, Text, View } from 'react-native';
 import {Asset} from "expo-asset";
 import LoggedOutNav from "./navigators/LoggedOutNav";
 import { NavigationContainer } from "@react-navigation/native";
+
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -27,12 +28,15 @@ export default function App() {
       />
     );
   }
+  const subscription = Appearance.addChangeListener(({colorScheme}) => {
+    console.log(colorScheme);
+  });
+
   return (
         <NavigationContainer>
           <LoggedOutNav />
         </NavigationContainer>
   ) 
-
 }
 
 const styles = StyleSheet.create({
