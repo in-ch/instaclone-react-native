@@ -17,7 +17,7 @@ export default function LoggedOutNav(){
                 title: "instagram",
             }}
             component={Welcome} />
-            <Stack.Screen name="CreateAccount" options={{headerShown: true}} component={CreateAccount} />
+            <Stack.Screen name="CreateAccount"  options={{headerShown: true, headerTitle:false,headerTransparent: true, headerTintColor:"white"}} component={CreateAccount} />
             <Stack.Screen name="LogIn" component={LogIn} />
         </Stack.Navigator>
     )
