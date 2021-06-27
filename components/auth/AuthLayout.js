@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 const Button = styled.TouchableOpacity`
   background-color: #0095f6;
@@ -16,9 +17,16 @@ const ButtonText = styled.Text`
 `;
 
 export default function AuthButton({ onPress, disabled, text }) {
+    const dismissKeyboard = () => {
+        Keyboard.dismiss();
+    };
+
   return (
-    <Button disabled={disabled} onPress={onPress}>
-      <ButtonText>{text}</ButtonText>
-    </Button>
+    <TouchableWithoutFeedback style={{ flex: 1 }} onPress={dismissKeyboard}>
+      <Container>
+        <Logo resizeMode="contain" source={require("../../assets/logo.png")} />
+        {children}
+      </Container>
+    </TouchableWithoutFeedback>
   );
 }

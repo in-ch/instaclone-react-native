@@ -12,3 +12,7 @@
 
 #14.7 autofocus 속성을 사용하면 페이지가 넘어갔을 때 해당 태그로 자동으로 포커징해준다.
       <TextInput>의 onSubmitEditing속성, react의 ref, focus() 메소드를 이용해서 자동으로 다음 TextInput 태그로 넘겨 줄 수 있다.
+
+#14.8 <KeyboardAvoidingView> 태그를 활용하면 키보드에 맞게 컨텐츠를 상단으로 자동으로 옮겨 줄 수 있다. 
+      단, ios랑 android에서 동작이 다르니 Platform을 이용해서 ios일 때 동작과 android일 때의 동작을 다르게 해줘야 한다. 
+      <TouchableWithoutFeedback>은 기본적으로 <Touchable>과 똑같으나 대신에 눌렀을 때의 애니메이션이 없다.
