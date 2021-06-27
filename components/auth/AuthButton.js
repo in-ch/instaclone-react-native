@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 
 const Button = styled.TouchableOpacity`
   background-color: #0095f6;
-  padding: 13px 10px;
+  padding: 15px 10px;
   border-radius: 3px;
   width: 100%;
   opacity: ${(props) => (props.disabled ? "0.5" : "1")};

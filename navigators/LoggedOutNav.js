@@ -12,6 +12,8 @@ export default function LoggedOutNav(){
             headerBackTitleVisible: false, // 뒤로가기에 이름 붙이는 거 
             headerShown: false, // 헤더가 보이는 지 안 보이는 지
             headerTintColor: "black", // 헤더 화살표 색상
+            headerTransparent: true,
+            headerTintColor: "white",
         }}>
             <Stack.Screen name="Welcome" options={{
                 title: "instagram",
