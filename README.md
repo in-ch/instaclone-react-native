@@ -9,3 +9,6 @@
 #14.4 리액트 네이티브의 스타일드 컴포넌트를 기존 엔진과 달라서 자식에게 상위 요소의 스타일을 물려줄 수가 없다.
 
 #14.6 rn에서는 input 대신에 <TextInput> 이라고 있는데 다양한 속성(secureTextEntry, keyboardType, returnKeyType, returnKeyLabel)이 있다. 
+
+#14.7 autofocus 속성을 사용하면 페이지가 넘어갔을 때 해당 태그로 자동으로 포커징해준다.
+      <TextInput>의 onSubmitEditing속성, react의 ref, focus() 메소드를 이용해서 자동으로 다음 TextInput 태그로 넘겨 줄 수 있다.
