@@ -2,7 +2,7 @@ import AppLoading from "expo-app-loading";
 import React, {useState} from 'react';
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
-import { Appearance, StyleSheet, Text, View } from 'react-native';
+import { Appearance, StyleSheet} from 'react-native';
 import {Asset} from "expo-asset";
 import LoggedOutNav from "./navigators/LoggedOutNav";
 import { NavigationContainer } from "@react-navigation/native";
