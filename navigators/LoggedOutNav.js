@@ -6,6 +6,7 @@ import LogIn from "../screens/LogIn";
 
 const Stack = createStackNavigator();
 
+
 export default function LoggedOutNav(){
     return (
         <Stack.Navigator initialRouteName="Welcome" headerMod="float" screenOptions={{  //options 전역변수 같은 느낌..
