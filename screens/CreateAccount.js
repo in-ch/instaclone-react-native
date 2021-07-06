@@ -1,10 +1,9 @@
 import React, { useRef }  from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import { KeyboardAvoidingView, Platform } from "react-native";
 import { TextInput } from "../components/auth/AuthShared";
 import AuthLayout from "../components/auth/AuthLayout";
-
+import AuthButton from "../components/auth/AuthButton";
 const Container = styled.View`
     flex:1;
     background-color:black;
@@ -30,7 +29,6 @@ export default function CreateAccount(props) {
                 returnKeyType="next"
                 onSubmitEditing={() => onNext(lastNameRef)}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
-                onChangeText={(text) => setValue("firstName", text)}
             />
             <TextInput
                 ref={lastNameRef}
@@ -38,42 +36,32 @@ export default function CreateAccount(props) {
                 returnKeyType="next"
                 onSubmitEditing={() => onNext(usernameRef)}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
-                onChangeText={(text) => setValue("lastName", text)}
             />
             <TextInput
                 ref={usernameRef}
                 placeholder="Username"
-                autoCapitalize="none"
                 returnKeyType="next"
                 onSubmitEditing={() => onNext(emailRef)}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
-                onChangeText={(text) => setValue("username", text)}
             />
             <TextInput
                 ref={emailRef}
                 placeholder="Email"
-                autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
                 onSubmitEditing={() => onNext(passwordRef)}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
-                onChangeText={(text) => setValue("email", text)}
             />
             <TextInput
                 ref={passwordRef}
                 placeholder="Password"
                 secureTextEntry
                 returnKeyType="done"
+                onSubmitEditing={onDone}
                 lastOne={true}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
-                onChangeText={(text) => setValue("password", text)}
-                onSubmitEditing={handleSubmit(onValid)}
             />
-            <AuthButton
-                text="Create Account"
-                disabled={false}
-                onPress={handleSubmit(onValid)}
-                />
+            <AuthButton text="Create Account" disabled={true} onPress={() => null} />
        </AuthLayout>
     )
 }
