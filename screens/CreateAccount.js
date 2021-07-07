@@ -74,12 +74,18 @@ export default function CreateAccount(props) {
                 placeholder="Password"
                 secureTextEntry
                 returnKeyType="done"
-                onSubmitEditing={onDone}
+                onSubmitEditing={handleSubmit(onValid)}
                 lastOne={true}
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
                 onChangeText={(text)=> setValue("password", text)}
             />
-            <AuthButton text="Create Account" disabled={true} onPress={() => null} />
+            <AuthButton 
+                text="Create Account" 
+                loading={true}
+                disabled={true} 
+                onPress={() => null} 
+                onPress={handleSubmit(onValid)}
+            />
        </AuthLayout>
     )
 }

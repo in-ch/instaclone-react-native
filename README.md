@@ -20,3 +20,5 @@
 #14.10 <TouchableWithoutFeedback>에서 disabled={Platform.OS === "web"} 옵션을 주면 웹에서도 <Input> 태그가 잘 작동함. 
        react native에는 form 태그가 없기 때문에 react hooks form을 써야 함.
        react-form을 쓰기 위해서는 useEffect를 써야한다. 
+
+#14.11 ngrok나 localtunnel을 사용하면 바깥 시뮬레이터에서도 접근이 가능하다.

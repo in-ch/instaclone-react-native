@@ -6,7 +6,8 @@ import { Appearance, StyleSheet} from 'react-native';
 import {Asset} from "expo-asset";
 import LoggedOutNav from "./navigators/LoggedOutNav";
 import { NavigationContainer } from "@react-navigation/native";
-
+import { ApolloProvider, useReactiveVar } from "@apollo/client";
+import client from "./apollo";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -33,9 +34,11 @@ export default function App() {
   });
 
   return (
+    <ApolloProvider client={client}>
         <NavigationContainer>
           <LoggedOutNav />
         </NavigationContainer>
+    </ApolloProvider>
   ) 
 }
 
