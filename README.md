@@ -22,3 +22,5 @@
        react-form을 쓰기 위해서는 useEffect를 써야한다. 
 
 #14.11 ngrok나 localtunnel을 사용하면 바깥 시뮬레이터에서도 접근이 가능하다.
+
+#14.12 react-native-hooks 에서 form 값을 실시간으로 지켜볼 수 있는 watch라는 게 있다. 
