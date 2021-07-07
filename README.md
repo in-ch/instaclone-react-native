@@ -24,3 +24,5 @@
 #14.11 ngrok나 localtunnel을 사용하면 바깥 시뮬레이터에서도 접근이 가능하다.
 
 #14.12 react-native-hooks 에서 form 값을 실시간으로 지켜볼 수 있는 watch라는 게 있다. 
+       route의 params를 이용하면 다른 페이지에서 초기값을 세팅할 수 있다. 
+       대신 해당값들에 value={watch("username")} 같은 것들을 해줘야 한다.

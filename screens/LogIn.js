@@ -19,7 +19,12 @@ const LOG_IN_MUTATION = gql`
 `;
 
 export default function LogIn() {
-    const {register, handleSubmit, setValue, watch} = useForm();
+    const {register, handleSubmit, setValue, watch} = useForm({
+        defaultValues: {
+            password: params?.password,
+            username: params?.username,
+        },
+    });
     const passwordRef = useRef();
     const onCompleted = (data) => {
         const {login: {ok, token}} = data;
@@ -49,6 +54,7 @@ export default function LogIn() {
     return (
         <AuthLayout>
             <TextInput
+                value={watch("username")}
                 autoCapitalize={"none"}
                 placeholder="Username"
                 returnKeyType="next"
@@ -57,6 +63,7 @@ export default function LogIn() {
                 onChangeText={(text)=>setValue("username",text)}
             />
             <TextInput
+                value={watch("password")}
                 ref={passwordRef}
                 placeholder="Password"
                 secureTextEntry
