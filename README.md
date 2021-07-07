@@ -16,3 +16,7 @@
 #14.8 <KeyboardAvoidingView> 태그를 활용하면 키보드에 맞게 컨텐츠를 상단으로 자동으로 옮겨 줄 수 있다. 
       단, ios랑 android에서 동작이 다르니 Platform을 이용해서 ios일 때 동작과 android일 때의 동작을 다르게 해줘야 한다. 
       <TouchableWithoutFeedback>은 기본적으로 <Touchable>과 똑같으나 대신에 눌렀을 때의 애니메이션이 없다.
+
+#14.10 <TouchableWithoutFeedback>에서 disabled={Platform.OS === "web"} 옵션을 주면 웹에서도 <Input> 태그가 잘 작동함. 
+       react native에는 form 태그가 없기 때문에 react hooks form을 써야 함.
+       react-form을 쓰기 위해서는 useEffect를 써야한다. 
