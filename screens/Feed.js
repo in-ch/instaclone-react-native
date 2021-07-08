@@ -1,12 +1,10 @@
 import React from "react";
-import { View } from "react-native"
+import { Text, View } from "react-native";
 
-export const Feed = () => {
-    return (
-        <View>
-            <Text>
-                Hello world
-            </Text>
-        </View>
-    )
+export default function Feed() {
+  return (
+    <View>
+      <Text>Hello</Text>
+    </View>
+  );
 }
