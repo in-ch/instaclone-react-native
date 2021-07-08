@@ -5,15 +5,14 @@ import AuthButton from "../components/auth/AuthButton";
 import { TextInput } from "../components/auth/AuthShared";
 import { useEffect } from "react";
 import {useForm} from "react-hook-form";
-import { gql, useMutation } from "@apollo/client";
-import isLoggedInVar from "./apollo";
+import { gql, useMutation, } from "@apollo/client";
+import {logUserIn} from "./apollo";
 
 const LOG_IN_MUTATION = gql`
-    mutation login($username: String!, $password: String!) {
-        login(username: $username, password: $password) {
+    mutation login($userName: String!, $password: String!) {
+        login(userName: $userName, password: $password) {
             ok 
             token
-            error
         }
     }
 `;
@@ -22,14 +21,14 @@ export default function LogIn({route:{params}}) {
     const {register, handleSubmit, setValue, watch} = useForm({
         defaultValues: {
             password: params?.password,
-            username: params?.username,
+            userName: params?.username,
         },
     });
     const passwordRef = useRef();
     const onCompleted = async (data) => {
         const {login: {ok, token}} = data;
         if(ok){
-            await isLoggedInVar(token);
+            await logUserIn(token);
         }
     };
     const [logInMutation, {loading}] = useMutation(LOG_IN_MUTATION, {
@@ -48,19 +47,19 @@ export default function LogIn({route:{params}}) {
         }
     };  
     useEffect(()=>{
-        register("username");
+        register("userName");
         register("password");
     },[register]);
     return (
         <AuthLayout>
             <TextInput
-                value={watch("username")}
+                value={watch("userName")}
                 autoCapitalize={"none"}
                 placeholder="Username"
                 returnKeyType="next"
                 placeholderTextColor={"rgba(255, 255, 255, 0.6)"}
                 onSubmitEditing={()=> onNext(passwordRef)}
-                onChangeText={(text)=>setValue("username",text)}
+                onChangeText={(text)=>setValue("userName",text)}
             />
             <TextInput
                 value={watch("password")}
