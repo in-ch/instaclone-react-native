@@ -5,6 +5,8 @@ import Profile from "../screens/Profile";
 import Search from "../screens/Search";
 import Notifications from "../screens/Notifications";
 import { Ionicons } from "@expo/vector-icons";
+import { View } from "react-native";
+import TabIcon from "../components/nav/TabIcon";
 
 const Tabs = createBottomTabNavigator();
 
@@ -35,6 +37,15 @@ export default function LoggedInNav() {
         options={{
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons name="search" color={color} size={focused ? 24 : 20} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Camera"
+        component={View}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Ionicons name="camera-outline" color={color} size={focused ? 24 : 20} />
           ),
         }}
       />
