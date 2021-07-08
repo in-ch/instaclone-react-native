@@ -26,3 +26,5 @@
 #14.12 react-native-hooks 에서 form 값을 실시간으로 지켜볼 수 있는 watch라는 게 있다. 
        route의 params를 이용하면 다른 페이지에서 초기값을 세팅할 수 있다. 
        대신 해당값들에 value={watch("username")} 같은 것들을 해줘야 한다.
+
+#14.13 AsyncStorage는 local storage랑 비슷한데 리액트 네이티브를 위한 것이다.
