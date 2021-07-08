@@ -12,10 +12,7 @@ import AuthLayout from "../components/auth/AuthLayout";
 export default function Welcome(props) {
 
     const goToCreateAccount = () => props.navigation.navigate("CreateAccount");
-    const goToLogIn = () => props.navigation.navigate("LogIn",{
-        username: "lalala",
-        password: "laalalala",
-    });
+    const goToLogIn = () => props.navigation.navigate("LogIn");
 
     return ( 
         <AuthLayout>
