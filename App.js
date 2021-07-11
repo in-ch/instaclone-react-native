@@ -8,7 +8,7 @@ import LoggedOutNav from "./navigators/LoggedOutNav";
 import LoggedInNav from "./navigators/LoggedInNav";
 import { NavigationContainer } from "@react-navigation/native";
 import { ApolloProvider, useReactiveVar } from "@apollo/client";
-import client, { isLoggedInVar, tokenVar } from "./screens/apollo";
+import client, { isLoggedInVar, tokenVar, TOKEN } from "./screens/apollo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
     return Promise.all([...fontPromises, ...imagePromises]);
   };
   const preload = async () => {
-    const token = await AsyncStorage.getItem("token");
+    const token = await AsyncStorage.getItem(TOKEN);
     if (token) {
       isLoggedInVar(true);
       tokenVar(token);
@@ -40,9 +40,6 @@ export default function App() {
       />
     );
   }
-  const subscription = Appearance.addChangeListener(({colorScheme}) => {
-    return colorScheme;
-  });
   
   return (
     <ApolloProvider client={client}>
@@ -52,12 +49,3 @@ export default function App() {
     </ApolloProvider>
   ) 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
