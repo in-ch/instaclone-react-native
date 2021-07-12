@@ -27,7 +27,7 @@ const authLink = setContext((_,{headers}) => {
   return {
     headers: {
       ...headers,
-      token: tokenVar(),
+      incheolisbest: tokenVar(),   // 이거 꼭 변수일 필요 없고 header에 저장될 변수명을 적어주면 됨. 
     }
   }
 });
