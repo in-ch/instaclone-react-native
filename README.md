@@ -30,3 +30,7 @@
 #14.13 AsyncStorage는 local storage랑 비슷한데 리액트 네이티브를 위한 것이다.
 
 #15.2 LoggedInNav.js에서 children을 쓰려면 함수를 만들어야 하고, 그 함수는 컴포넌트를 리턴해야 한다. 
+
+#15.5 FlatList를 이용해서 scroll를 구현할 것이다. 
+      scrollView는 모든 react child components를 한 꺼번에 로딩해 버린다. 
+      FlatList는 지정 가능. 
