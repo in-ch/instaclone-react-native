@@ -1,14 +1,27 @@
-import React from "react";
-import { useWindowDimensions } from "react-native";
+import React, {useState} from "react";
+import { Image, TouchableOpacity, useWindowDimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 
 const Container = styled.View`
+    border: 1px solid blue;
 `;
-const Header = styled.View``;
-const UserAvatar = styled.Image``;
+const Header = styled.TouchableOpacity`
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+`;
+const UserAvatar = styled.Image`
+    margin-right: 10px;
+    width:25px;
+    height:25px;
+    border-radius:12.5;
+`;
 const Username = styled.Text`
     color:white;
+    font-weight: 600;
 `;
 const File = styled.Image``;
 const Actions = styled.View``;
@@ -22,18 +35,30 @@ const Likes = styled.Text`
 `;
 
 export default function Photo({id, user, caption, file, isLiked, likes}){
-
+    const navigation = useNavigation();
     const {width, height} = useWindowDimensions();  // 브라우저 넓이를 가져옴. 
+    const [imageHeight, setImageHeight] = useState(height - 450);
+
+    useEffect(()=> {
+        Image.getSize(file, (width, height) => {
+            setImageHeight(height);
+        });
+    },[file]);
 
     return <Container>
-            <Header>
-                <UserAvatar />
-                <Username>{user.userName}</Username>
+            <Header onPress={()=> navigation.navigate("Profile")}>
+                    <UserAvatar 
+                        resizeMode="cover" 
+                        style={{width:30,height:30,borderRadius:25}}
+                        source={{uri: user.avatar}}
+                    />
+                    <Username>{user.userName}</Username>
             </Header>
             <File
+                resizeMode="contain"
                 style={{
                 width,
-                height: height - 500,
+                height: imageHeight,
                 }}
                 source={{ uri: file }}
             />
@@ -43,7 +68,9 @@ export default function Photo({id, user, caption, file, isLiked, likes}){
             </Actions>
             <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
             <Caption>
-                <Username>{user.userName}</Username>
+                <TouchableOpacity onPress={()=> navigation.navigate("Profile")}>
+                    <Username>{user.userName}</Username>
+                </TouchableOpacity>
                 <CaptionText>{caption}</CaptionText>
             </Caption>
         </Container>
