@@ -7,17 +7,18 @@ import { COMMENT_FRAGMENT, PHOTO_FRAGMENT } from "../fragments";
 const FEED_QUERY = gql`
         query seeFeed {
             seeFeed {
-              ...PhotoFragment
-              user {
-                  userName
-                  avatar
-              }
-              caption
-              comments {
-                  ...CommentFragment
-              }
-              createAt
-              isMine
+              # ...PhotoFragment
+              # user {
+              #     userName
+              #     avatar
+              # }
+              # caption
+              # comments {
+              #     ...CommentFragment
+              # }
+              # createAt
+              # isMine
+              id
             }
         }
         ${PHOTO_FRAGMENT}
