@@ -27,8 +27,8 @@ const authLink = setContext((_,{headers}) => {
   return {
     headers: {
       ...headers,
-      incheolisbest: tokenVar(),
-    } // header 변경 및 세팅 부분
+      token: tokenVar(),
+    }
   }
 });
 

@@ -21,13 +21,24 @@ const FEED_QUERY = gql`
               id
             }
         }
-        ${PHOTO_FRAGMENT}
-        ${COMMENT_FRAGMENT}
+
 `;
 
+// const FEED_QUERY = gql`
+//       query seePhoto($id:Int!) {
+//         seePhoto(id:1){
+//             caption
+//         }
+//       }
+// `;
+
+
 export default function Feed() {
-  const { data } = useQuery(FEED_QUERY);
+  const  {data} = useQuery(FEED_QUERY);
+
+
   console.log(data);
+  console.log("HHH");
 
   return (
     <View style={{backgroundColor:"black",flex:1, alignItems:"center",justifyContent:"center"}}>
