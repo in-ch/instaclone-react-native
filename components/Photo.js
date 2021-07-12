@@ -4,22 +4,21 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const Container = styled.View`
-    background-color:white;
 `;
 const Header = styled.View``;
 const UserAvatar = styled.Image``;
 const Username = styled.Text`
-
+    color:white;
 `;
 const File = styled.Image``;
 const Actions = styled.View``;
 const Action = styled.TouchableOpacity``;
 const Caption = styled.View``;
 const CaptionText = styled.Text`
-
+    color:white;
 `;
 const Likes = styled.Text`
-
+    color:white;
 `;
 
 export default function Photo({id, user, caption, file, isLiked, likes}){
@@ -31,7 +30,13 @@ export default function Photo({id, user, caption, file, isLiked, likes}){
                 <UserAvatar />
                 <Username>{user.userName}</Username>
             </Header>
-            <File styled={{width,height:height-500,}} source={{uri:file}} />
+            <File
+                style={{
+                width,
+                height: height - 500,
+                }}
+                source={{ uri: file }}
+            />
             <Actions>
                 <Action />
                 <Action />
