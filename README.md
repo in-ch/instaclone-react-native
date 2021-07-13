@@ -34,3 +34,5 @@
 #15.5 FlatList를 이용해서 scroll를 구현할 것이다. 
       scrollView는 모든 react child components를 한 꺼번에 로딩해 버린다. 
       FlatList는 지정 가능. 
+
+#15.9 refetch는 query를 불러오는 function이다.
