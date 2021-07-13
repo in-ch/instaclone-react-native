@@ -36,3 +36,7 @@
       FlatList는 지정 가능. 
 
 #15.9 refetch는 query를 불러오는 function이다.
+
+#15.10 onEndReached()는 맨 아래로 갔을 떄 실행되는 함수이다.
+       그리고 onEndReachedThreshold()로 어느 부분이 끝 쯤인지 알 수 있게 해준다.
+       fetchMore는 refetch와 비슷한데 refetch처럼 값 초기화가 아니라 값을 불러와서 기존 값에 붙여 준다.

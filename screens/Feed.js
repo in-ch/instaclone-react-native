@@ -7,8 +7,8 @@ import ScreenLayout from "../components/nav/ScreenLayout";
 import Photo from "../components/Photo";
 
 const FEED_QUERY = gql`
-        query seeFeed {
-            seeFeed {
+        query seeFeed($offset: Int!) {
+            seeFeed(offset:$offset) {
               ...PhotoFragment
               user {
                   userName
@@ -28,7 +28,11 @@ const FEED_QUERY = gql`
 `;
 
 export default function Feed() {
-  const  {data, loading, refetch} = useQuery(FEED_QUERY);
+  const  {data, loading, refetch, fetchMore} = useQuery(FEED_QUERY, {
+    variables: {
+      offset: 0,
+    }
+  });
   const renderPhoto = ({item: photo}) => {
     return <Photo {...photo} />
   };
@@ -41,6 +45,14 @@ export default function Feed() {
   return (
     <ScreenLayout loading={loading}>
       <FlatList
+        onEndReachedThreshold={0.05}
+        onEndReached={() => 
+          fetchMore({
+            variables: {
+              offset: data?.seeFeed?.length,
+            },
+          })
+        }
         refreshing={refreshing}  // 끌어서 새로고침
         onRefresh={refresh}  // 끌어서 새로고침
         style={{width:"100%"}}
