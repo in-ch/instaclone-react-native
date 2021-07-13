@@ -8,8 +8,9 @@ import LoggedOutNav from "./navigators/LoggedOutNav";
 import LoggedInNav from "./navigators/LoggedInNav";
 import { NavigationContainer } from "@react-navigation/native";
 import { ApolloProvider, useReactiveVar } from "@apollo/client";
-import client, { isLoggedInVar, tokenVar, TOKEN } from "./screens/apollo";
+import client, { isLoggedInVar, tokenVar, TOKEN, cache } from "./screens/apollo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AsyncStorageWrapper, persistCache } from "apollo3-cache-persist";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,12 @@ export default function App() {
       isLoggedInVar(true);
       tokenVar(token);
     }
+
+    await persistCache({
+      cache,
+      storage: new AsyncStorageWrapper(AsyncStorage), // 캐시를 스토리지에 저장해서 서버가 꺼져도 캐시에 저장된 데이터들을 불러올 수 있도록 함.
+    });
+
     return preloadAssets();
   };
 
