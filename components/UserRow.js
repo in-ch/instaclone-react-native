@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
 
-const Column = styled.View`
+const Wrapper = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+`;
+
+const Column = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   padding: 5px 15px;
@@ -16,15 +24,29 @@ const Username = styled.Text`
   font-weight: 600;
   color: white;
 `;
+const FollowBtn = styled.TouchableOpacity`
+  background-color: skyblue;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+`;
+const FollowBtnText = styled.Text`
+  color: white;
+  font-weight: 600;
+`;
 
-const Wrapper = styled.View``;
-const FollowBtn = styled.TouchableOpacity``;
-const FollowBtnText = styled.Text``;
-
-export default function UserRow({ avatar, username, isFollowing, isMe }) {
+export default function UserRow({ avatar, id, username, isFollowing, isMe }) {
+  const navigation = useNavigation();
   return (
     <Wrapper>
-      <Column>
+      <Column
+        onPress={() =>
+          navigation.navigate("Profile", {
+            userName,
+            id,
+          })
+        }
+      >
         <Avatar source={{ uri: avatar }} />
         <Username>{username}</Username>
       </Column>

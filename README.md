@@ -40,3 +40,5 @@
 #15.10 onEndReached()는 맨 아래로 갔을 떄 실행되는 함수이다.
        그리고 onEndReachedThreshold()로 어느 부분이 끝 쯤인지 알 수 있게 해준다.
        fetchMore는 refetch와 비슷한데 refetch처럼 값 초기화가 아니라 값을 불러와서 기존 값에 붙여 준다.
+
+#15.1 <FlatList>의 ItemSeparatorComponent 속성을 이용하면 맨위와 아래가 자동으로 없는 구분 선을 만들 수가 있고 커스터 마이징도 가능함.

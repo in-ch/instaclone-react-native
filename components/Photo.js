@@ -53,6 +53,13 @@ export default function Photo({id, user, caption, file, isLiked, likes}){
     const {width, height} = useWindowDimensions();  // 브라우저 넓이를 가져옴. 
     const [imageHeight, setImageHeight] = useState(height - 450);
 
+    const goToProfile = () => {
+        navigation.navigate("Profile", {
+          userName: user.userName,
+          id: user.id,
+        });
+    };
+
     useEffect(()=> {
         Image.getSize(file, (width, height) => {
             setImageHeight(height);
@@ -60,7 +67,7 @@ export default function Photo({id, user, caption, file, isLiked, likes}){
     },[file]);
 
     return <Container>
-            <Header onPress={()=> navigation.navigate("Profile")}>
+            <Header onPress={goToProfile}>
                 <UserAvatar 
                     resizeMode="cover" 
                     style={{width:30,height:30,borderRadius:25}}
@@ -90,7 +97,7 @@ export default function Photo({id, user, caption, file, isLiked, likes}){
                 <Likes>{likes === 1 ? "1 like" : `${likes} likes`}</Likes>
             </TouchableOpacity>
             <Caption>
-                <TouchableOpacity onPress={()=> navigation.navigate("Profile")}>
+                <TouchableOpacity onPress={goToProfile}>
                     <Username>{user.userName}</Username>
                 </TouchableOpacity>
                 <CaptionText>{caption}</CaptionText>
