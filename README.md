@@ -46,3 +46,5 @@
 #15.2 header의 제목 부분을 바꾸는 건 당연히 가능하다. setOptions({ title: "lalala"})를 통해서,
 
 #15.4 useQuery는 mount되면 무조건 실행되는데 useLazyQuery를 쓰면 mount될 때 실행되지는 않고 호출해야 실행됨.
+
+#15.5 <FlatList>에 column을 주면 순서대로 3개씩 넣어줄 수 있다.
