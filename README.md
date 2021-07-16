@@ -44,3 +44,5 @@
 #15.1 <FlatList>의 ItemSeparatorComponent 속성을 이용하면 맨위와 아래가 자동으로 없는 구분 선을 만들 수가 있고 커스터 마이징도 가능함.
 
 #15.2 header의 제목 부분을 바꾸는 건 당연히 가능하다. setOptions({ title: "lalala"})를 통해서,
+
+#15.4 useQuery는 mount되면 무조건 실행되는데 useLazyQuery를 쓰면 mount될 때 실행되지는 않고 호출해야 실행됨.

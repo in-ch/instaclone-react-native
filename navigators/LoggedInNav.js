@@ -5,7 +5,7 @@ import Me from "../screens/Me";
 import Search from "../screens/Search";
 import Notifications from "../screens/Notifications";
 import { Ionicons } from "@expo/vector-icons";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import StackNavFactory from "../components/nav/StackNavFactory";
 import useMe from "../hooks/useMe";
 
@@ -69,9 +69,20 @@ export default function LoggedInNav() {
       <Tabs.Screen
         name="Me"
         options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name="person" color={color} size={focused ? 22 : 18} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+          data?.me?.avatar ? (
+            <Image
+                source={{ uri: data.me.avatar }}
+                style={{
+                  height: 20,
+                  width: 20,
+                  borderRadius: 10,
+                  ...(focused && { borderColor: "white", borderWidth: 1 }),   // focus하면 적용되는 코드임. 
+                }}
+              />
+            ) : (
+              <TabIcon iconName={"person"} color={color} focused={focused} />
+            ),
         }}
       >
           {() => <StackNavFactory screenName="Me" />}
