@@ -6,7 +6,7 @@ import DismissKeyboard from "../components/DismissKeyboard";
 
 const Input = styled.TextInput``;
 
-export default function Search() {
+export default function Search({navigation}) {
   const { setValue, register } = useForm();
   
   const SearchBox = () => (

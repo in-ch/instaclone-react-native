@@ -33,7 +33,7 @@ export default function App() {
     await persistCache({
       cache,
       storage: new AsyncStorageWrapper(AsyncStorage), // 캐시를 스토리지에 저장해서 서버가 꺼져도 캐시에 저장된 데이터들을 불러올 수 있도록 함.
-      serialize: false,
+      // serialize: false,
     });
 
     return preloadAssets();

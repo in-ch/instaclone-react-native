@@ -7,10 +7,12 @@ import Notifications from "../screens/Notifications";
 import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
 import StackNavFactory from "../components/nav/StackNavFactory";
+import useMe from "../hooks/useMe";
 
 const Tabs = createBottomTabNavigator();
 
 export default function LoggedInNav() {
+  const {data} = useMe();
   return (
     <Tabs.Navigator
       tabBarOptions={{
