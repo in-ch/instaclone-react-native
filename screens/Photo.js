@@ -12,10 +12,11 @@ const SEE_PHOTO = gql`
       ...PhotoFragment
       user {
         id
-        username
+        userName
         avatar
       }
       caption
+      id
     }
   }
   ${PHOTO_FRAGMENT}
@@ -28,6 +29,7 @@ export default function PhotoScreen({ route }) {
       id: route?.params?.photoId,
     },
   });
+  console.log(route?.params?.photoId);
   const [refreshing, setRefreshing] = useState();
   const onRefresh = async () => {
     setRefreshing(true);
