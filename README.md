@@ -48,3 +48,5 @@
 #15.4 useQuery는 mount되면 무조건 실행되는데 useLazyQuery를 쓰면 mount될 때 실행되지는 않고 호출해야 실행됨.
 
 #15.5 <FlatList>에 column을 주면 순서대로 3개씩 넣어줄 수 있다.
+
+#16.7 <ScrollView>의 refreshControl 속성을 통해서 당겨서 새로고침을 구현할 수 있는데, <FlatList>와는 다르게 화면에 많은 component를 갖고 있거나 object를 갖고 있을 때 사용한다. 
