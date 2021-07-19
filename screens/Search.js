@@ -46,6 +46,7 @@ export default function Search({navigation}) {
   const { setValue, register, watch, handleSubmit } = useForm();
   const [startQueryFn, { loading, data, called }] = useLazyQuery(SEARCH_PHOTOS);
   const onValid = ({ keyword }) => {
+    console.log(keyword);
     startQueryFn({
       variables: {
         keyword,
@@ -113,7 +114,6 @@ export default function Search({navigation}) {
               />
             )
           ) : null}
-         <Text style={{ color: "white" }}>Photo</Text>
       </View>
     </DismissKeyboard>
   );
