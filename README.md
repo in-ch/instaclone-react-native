@@ -50,3 +50,8 @@
 #15.5 <FlatList>에 column을 주면 순서대로 3개씩 넣어줄 수 있다.
 
 #16.7 <ScrollView>의 refreshControl 속성을 통해서 당겨서 새로고침을 구현할 수 있는데, <FlatList>와는 다르게 화면에 많은 component를 갖고 있거나 object를 갖고 있을 때 사용한다. 
+
+#17.0 업로드를 위해 아예 다른 nav로 보내야 하기 때문에 기존 nav를 묶어 주고 업로드 
+      스크린을 밖으로 뺄 거다. 
+      그리고 <Tabs.screen>의 listener 옵션을 통해 tabpress를 줌으로써 자신의 밖에 있는 Tab의 클릭을 유도할 수 있음.
+      <Stack.Navigator>의 mode="modal"을 쓰면 옆에서 뜨는 게 아니라 아래에서 위로 뜨게 할 수 있다. 
