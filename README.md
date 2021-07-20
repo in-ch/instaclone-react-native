@@ -55,3 +55,5 @@
       스크린을 밖으로 뺄 거다. 
       그리고 <Tabs.screen>의 listener 옵션을 통해 tabpress를 줌으로써 자신의 밖에 있는 Tab의 클릭을 유도할 수 있음.
       <Stack.Navigator>의 mode="modal"을 쓰면 옆에서 뜨는 게 아니라 아래에서 위로 뜨게 할 수 있다. 
+
+#17.1 Material Top Tabs navigator를 이용하면 옆으로 넘기면서 스크롤을 할 수 있다. 
