@@ -4,12 +4,12 @@ import { setContext } from "@apollo/client/link/context";
 import { offsetLimitPagination } from "@apollo/client/utilities";
 
 export const isLoggedInVar = makeVar(false);
-export const tokenVar = makeVar("");
+export const tokenVar = makeVar(null);
 
 export const TOKEN = "incheolisbest";
 
 export const logUserIn = async (token) => {
-  await AsyncStorage.setItem(TOKEN, token);
+  await AsyncStorage.setItem("incheolisbest", token);
   isLoggedInVar(true);
   tokenVar(token);
 };
