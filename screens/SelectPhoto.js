@@ -25,8 +25,14 @@ const IconContainer = styled.View`
   bottom: 5px;
   right: 0px;
 `;
+const HeaderRightText = styled.Text`
+  color: skyblue;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 7px;
+`;
 
-export default function SelectPhoto() {
+export default function SelectPhoto({navigation}) {
   const [ok, setOk] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [chosenPhoto, setChosenPhoto] = useState();
@@ -35,6 +41,8 @@ export default function SelectPhoto() {
     setPhotos(photos);
     setChosenPhoto(photos[0]?.uri);
   };
+
+
   const getPermissions = async () => {
     const {
       accessPrivileges,
@@ -57,12 +65,22 @@ export default function SelectPhoto() {
     getPermissions();
     getPhotos();
   }, []);
-
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: HeaderRight,
+    });
+  }, []);
+  
   const numColumns = 4;
   const { width } = useWindowDimensions();
   const choosePhoto = (uri) => {
     setChosenPhoto(uri);
   };
+  const HeaderRight = () => (
+    <TouchableOpacity>
+      <HeaderRightText>Next</HeaderRightText>
+    </TouchableOpacity>
+  );
   const renderItem = ({ item: photo }) => (
     <ImageContainer onPress={() => choosePhoto(photo.uri)}>
       <Image
@@ -70,7 +88,11 @@ export default function SelectPhoto() {
         style={{ width: width / numColumns, height: 100 }}
       />
       <IconContainer>
-        <Ionicons name="checkmark-circle" size={18} color="white" />
+        <Ionicons
+          name="checkmark-circle"
+          size={18}
+          color={photo.uri === chosenPhoto ? colors.blue : "white"}
+        />
       </IconContainer>
     </ImageContainer>
   );
