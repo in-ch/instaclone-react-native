@@ -4,6 +4,7 @@ import { View, Image } from "react-native";
 import StackNavFactory from "../components/nav/StackNavFactory";
 import useMe from "../hooks/useMe";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import TabIcon from "../components/nav/TabIcon";
 
 const Tabs = createBottomTabNavigator();
 
