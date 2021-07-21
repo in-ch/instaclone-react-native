@@ -6,7 +6,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import * as MediaLibrary from "expo-media-library";
+import * as MediaLibrary from 'expo-media-library';
 import styled from "styled-components/native";
 
 const Container = styled.View`
@@ -26,22 +26,21 @@ const IconContainer = styled.View`
   right: 0px;
 `;
 
-
 export default function SelectPhoto() {
-  const [ok, setOk] = useState(false); 
-  const [photos, setPhotos] = useState([]);  // getPhotos로 가져온 사진을 담을 배열 
-  const [chosenPhoto, setChosenPhoto] = useState("");   // 이미지를 선택하면 이곳에 담음. 
-
-  const getPhotos = async () => {   // 요청이 수락되면 getPhotos를 통해서 사진들을 가져올 수 있음. 
+  const [ok, setOk] = useState(false);
+  const [photos, setPhotos] = useState([]);
+  const [chosenPhoto, setChosenPhoto] = useState();
+  const getPhotos = async () => {
     const { assets: photos } = await MediaLibrary.getAssetsAsync();
     setPhotos(photos);
     setChosenPhoto(photos[0]?.uri);
   };
-  const getPermissions = async () => {  // 앨범에서 사진 가져오는 거 요청 
+  const getPermissions = async () => {
     const {
       accessPrivileges,
       canAskAgain,
     } = await MediaLibrary.getPermissionsAsync();
+    await MediaLibrary.getAssetsAsync();
     if (accessPrivileges === "none" && canAskAgain) {
       const { accessPrivileges } = await MediaLibrary.requestPermissionsAsync();
       if (accessPrivileges !== "none") {
@@ -53,9 +52,12 @@ export default function SelectPhoto() {
       getPhotos();
     }
   };
+
   useEffect(() => {
     getPermissions();
+    getPhotos();
   }, []);
+
   const numColumns = 4;
   const { width } = useWindowDimensions();
   const choosePhoto = (uri) => {
