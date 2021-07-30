@@ -24,7 +24,7 @@ const httpLink = createHttpLink({
   uri:"http://localhost:4000/graphql"
 });
 
-const authLink = setContext((_,{headers}) => {
+const authLink = setContext((_,{headers}) => {  // api 실행할 때 마다 실행됨. 
   return {
     headers: {
       ...headers,
